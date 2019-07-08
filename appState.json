@@ -1,50 +1,44 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "4a4b38cf-1a3e-40e5-b840-c759d1b408a3": {
-        "id": "4a4b38cf-1a3e-40e5-b840-c759d1b408a3",
+      "9a4ea624-4334-4034-957c-fc905ca79edb": {
+        "id": "9a4ea624-4334-4034-957c-fc905ca79edb",
         "parent": null,
         "name": "TestMySQL",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5"
+          "4f797bc3-4b17-4a9d-a7e0-703cfb6b9bcf"
         ],
         "isRemovable": false,
         "filePath": "TestMySQL"
       },
-      "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5": {
-        "id": "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5",
-        "parent": "4a4b38cf-1a3e-40e5-b840-c759d1b408a3",
+      "4f797bc3-4b17-4a9d-a7e0-703cfb6b9bcf": {
+        "id": "4f797bc3-4b17-4a9d-a7e0-703cfb6b9bcf",
+        "parent": "9a4ea624-4334-4034-957c-fc905ca79edb",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
         "filePath": "TestMySQL/lambda.js",
-        "code": "const mysql = require('mysql');\n\nexports.handler = function (event, context, callback) {\n\n    var connection = mysql.createConnection({\n        host: 'mysql-rfam-public.ebi.ac.uk',\n        user: 'rfamro',\n        port: 4497,\n        database: 'Rfam'\n    });\n\n    connection.connect();\n\n    connection.query('SELECT * FROM family LIMIT 5', function (error, results, fields) {\n        if (error) throw error;\n        console.log('The solution is: ', results);\n        callback(null, { results });\n    });\n\n    connection.end();\n}",
-        "triggers": [],
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
+          "handler": "handler",
           "timeout": 60,
-          "memory": 128
+          "memory": 128,
+          "layers": []
         },
-        "testCases": {
-          "1ec7db38-9b54-474f-8809-e0699fdbd05a": {
-            "id": "1ec7db38-9b54-474f-8809-e0699fdbd05a",
-            "name": "Unnamed event",
-            "functionId": "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5",
-            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
-          }
-        }
+        "triggers": []
       }
     },
     "deletedFiles": [],
-    "rootNode": "4a4b38cf-1a3e-40e5-b840-c759d1b408a3",
+    "rootNode": "9a4ea624-4334-4034-957c-fc905ca79edb",
     "openFiles": [
-      "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5"
+      "4f797bc3-4b17-4a9d-a7e0-703cfb6b9bcf"
     ],
-    "currentFileId": "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5",
+    "currentFileId": "4f797bc3-4b17-4a9d-a7e0-703cfb6b9bcf",
     "resources": {},
     "customTemplate": {
       "dialect": null,
@@ -61,30 +55,17 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {
-        "swagger-client": {
-          "name": "swagger-client",
-          "version": "3.8.21",
-          "notRemovable": false,
-          "language": "javascript"
-        },
-        "mysql": {
-          "name": "mysql",
-          "version": "2.16.0",
-          "language": "javascript"
-        }
-      }
-    },
-    "lambdaId": "0cdfed50-2f82-4d54-81b9-0bf3e2b060c5"
+      "dependencies": {}
+    }
   },
   "PROJECT_META": {
     "projectName": "TestMySQL",
-    "projectDescription": "Testing1",
+    "projectDescription": "",
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1562316161902
+    "lastSave": 1562566157208
   },
   "VCS_STATE": {
     "provider": "GitHub",
